@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELIGHT HAVEN - সেরা শার্ট, প্যান্ট, জুতা, চশমা ও ঘড়ির শপ</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #334155;
+            --heading-color: #0f172a;
+            --border-color: #e2e8f0;
+            --dark-bg: #0f172a;
+            --accent-green: #25D366;
+            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #cbd5e1;
+            --heading-color: #f8fafc;
+            --border-color: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Hind Siliguri', Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Top Bar & Dark Mode Switch */
+        .top-bar {
+            background: linear-gradient(90deg, #1e293b, #0f172a);
+            color: #f1f5f9;
+            padding: 8px 15px;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            background: #334155;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            gap: 10px;
+            flex-wrap: nowrap;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--heading-color);
+            text-decoration: none;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            letter-spacing: 0.5px;
+            position: relative;
+            background: linear-gradient(90deg, #2563eb, #38bdf8, #60a5fa, #2563eb);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shineText 3s linear infinite;
+        }
+
+        .logo span {
+            color: var(--heading-color);
+            background: none;
+            -webkit-text-fill-color: initial;
+        }
+
+        body.dark-mode .logo span {
+            color: #ffffff;
+        }
+
+        @keyframes shineText {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .search-box {
+            position: relative;
+            width: 180px;
+            flex-shrink: 1;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 7px 12px 7px 30px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-color);
+            color: var(--text-color);
+            outline: none;
+            font-size: 13px;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 12px;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80') center/cover;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .hero-banner h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+
+        .timer-container {
+            margin-top: 15px;
+            display: inline-flex;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+        }
+
+        .timer-box {
+            text-align: center;
+        }
+
+        .timer-box span {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ef4444;
+            background: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .timer-box label {
+            display: block;
+            font-size: 11px;
+            margin-top: 2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Category Grid */
+        .category-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--heading-color);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .category-card:hover, .category-card.active {
+            border-color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .category-card i {
+            font-size: 22px;
+            color: var(--primary-color);
+            margin-bottom: 6px;
+        }
+
+        .category-card p {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--heading-color);
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #ef4444;
+            color: white;
+            padding: 3px 8px;
+            font-size: 10px;
+            font-weight: bold;
+            border-radius: 10px;
+            z-index: 2;
+        }
+
+        .img-wrapper {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .img-wrapper:hover .product-img {
+            transform: scale(1.05);
+        }
+
+        .quick-view-btn {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(15, 23, 42, 0.75);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            opacity: 0.9;
+            transition: 0.2s;
+        }
+
+        .quick-view-btn:hover {
+            background: var(--primary-color);
+        }
+
+        .product-info {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--heading-color);
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        .order-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        /* Modals Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(4px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 15px;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            color: var(--text-color);
+            padding: 25px;
+            border-radius: 16px;
+            max-width: 450px;
+            width: 100%;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .quick-view-modal {
+            max-width: 600px;
+        }
+
+        .quick-view-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        @media(min-width: 550px) {
+            .quick-view-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .main-gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .gallery-thumbs {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+            overflow-x: auto;
+        }
+
+        .thumb-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .thumb-img.active {
+            border-color: var(--primary-color);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .size-guide-link {
+            font-size: 12px;
+            color: var(--primary-color);
+            text-decoration: underline;
+            cursor: pointer;
+            float: right;
+        }
+
+        .whatsapp-submit-btn {
+            background-color: var(--accent-green);
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* Recent Purchase Popup */
+        .recent-purchase-popup {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            padding: 12px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 99;
+            transform: translateY(150%);
+            transition: transform 0.5s ease;
+            max-width: 300px;
+        }
+
+        .recent-purchase-popup.show {
+            transform: translateY(0);
+        }
+
+        .recent-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .recent-info p {
+            font-size: 12px;
+            margin: 0;
+            color: var(--heading-color);
+        }
+
+        .recent-info span {
+            font-size: 10px;
+            color: #64748b;
+        }
+
+        footer {
+            background-color: var(--dark-bg);
+            color: #94a3b8;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .size-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .size-table th, .size-table td {
+            border: 1px solid var(--border-color);
+            padding: 8px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .size-table th {
+            background: var(--bg-color);
+        }
+
+        @media (min-width: 600px) {
+            .logo { font-size: 26px; }
+            .search-box { width: 280px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Notice & Dark Mode Toggle -->
+    <div class="top-bar">
+        <span>🚚 সারা বাংলাদেশে ক্যাশ অন ডেলিভারি সুবিধা!</span>
+        <div class="theme-toggle" onclick="toggleDarkMode()">
+            <i class="fa-solid fa-moon" id="themeIcon"></i>
+            <span id="themeText">ডার্ক মোড</span>
+        </div>
+    </div>
+
+    <!-- Sticky Header -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span>ELIGHT</span> HAVEN
+            </a>
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="প্রোডাক্ট খুঁজুন...">
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner & Countdown Timer -->
+    <div class="hero-banner">
+        <h1>বিশেষ অফারে কেনাকাটা করুন!</h1>
+        <p>সেরা কোয়ালিটির শার্ট, প্যান্ট, জুতা, চশমা ও ঘড়ির কালেকশন</p>
+        <div class="timer-container">
+            <div class="timer-box"><span id="hours">08</span><label>ঘণ্টা</label></div>
+            <div class="timer-box"><span id="minutes">45</span><label>মিনিট</label></div>
+            <div class="timer-box"><span id="seconds">30</span><label>সেকেন্ড</label></div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Visual Category Grid -->
+        <div class="category-title">ক্যাটাগরি বেছে নিন</div>
+        <div class="category-grid">
+            <div class="category-card active" onclick="filterCategory('all', this)">
+                <i class="fa-solid fa-border-all"></i>
+                <p>সবগুলো</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('shirt', this)">
+                <i class="fa-solid fa-shirt"></i>
+                <p>শার্ট</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('pant', this)">
+                <i class="fa-solid fa-user-large"></i>
+                <p>প্যান্ট</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('shoes', this)">
+                <i class="fa-solid fa-shoe-prints"></i>
+                <p>জেন্টস জুতা</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('ladies_shoes', this)">
+                <i class="fa-solid fa-socks"></i>
+                <p>লেডিস জুতা</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('sunglasses', this)">
+                <i class="fa-solid fa-glasses"></i>
+                <p>চশমা</p>
+            </div>
+            <!-- নতুন যুক্ত করা ঘড়ির ক্যাটাগরি -->
+            <div class="category-card" onclick="filterCategory('watch', this)">
+                <i class="fa-solid fa-clock"></i>
+                <p>ঘড়ি</p>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid" id="productGrid"></div>
+    </div>
+
+    <!-- Product Quick View Modal -->
+    <div class="modal" id="quickViewModal">
+        <div class="modal-content quick-view-modal">
+            <span class="close-btn" onclick="closeModal('quickViewModal')">&times;</span>
+            <div class="quick-view-grid">
+                <div>
+                    <img id="qvMainImg" src="" class="main-gallery-img">
+                    <div class="gallery-thumbs" id="qvThumbs"></div>
+                </div>
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                    <h3 id="qvTitle" style="color: var(--heading-color); margin-bottom: 8px;"></h3>
+                    <div id="qvPrice" style="font-size: 22px; font-weight: 800; color: var(--primary-color); margin-bottom: 12px;"></div>
+                    <p id="qvDesc" style="font-size: 13px; color: var(--text-color); margin-bottom: 15px;"></p>
+                    <button id="qvOrderBtn" class="order-btn" style="padding: 12px; border-radius: 8px;">
+                        <i class="fa-solid fa-bag-shopping"></i> এখনই অর্ডার করুন
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Purchase Notification Popup -->
+    <div class="recent-purchase-popup" id="recentPopup">
+        <img src="" alt="" class="recent-img" id="recentImg">
+        <div class="recent-info">
+            <p><b id="recentName">রহিম, ঢাকা</b></p>
+            <p id="recentProduct">ফরমাল শার্ট অর্ডার করেছেন</p>
+            <span>মাত্র ৩ মিনিট আগে</span>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('orderModal')">&times;</span>
+            <h3 style="margin-bottom: 15px;">অর্ডার বিবরণ</h3>
+            <form id="checkoutForm" onsubmit="sendToWhatsApp(event)">
+                <div class="form-group">
+                    <label>প্রোডাক্টের নাম:</label>
+                    <input type="text" id="selectedProduct" readonly>
+                </div>
+                <div class="form-group">
+                    <label>মূল্য:</label>
+                    <input type="text" id="selectedPrice" readonly>
+                </div>
+                <div class="form-group">
+                    <span class="size-guide-link" onclick="openModal('sizeGuideModal')">সাইজ গাইড দেখুন</span>
+                    <label for="size">সাইজ নির্বাচন করুন:</label>
+                    <select id="size" required>
+                        <option value="">সাইজ বেছে নিন</option>
+                        <optgroup label="শার্টের সাইজ">
+                            <option value="M">M (মেডিয়াম)</option>
+                            <option value="L">L (লার্জ)</option>
+                            <option value="XL">XL (এক্সট্রা লার্জ)</option>
+                            <option value="XXL">XXL (ডাবল এক্সট্রা)</option>
+                        </optgroup>
+                        <optgroup label="প্যান্টের সাইজ">
+                            <option value="28">28</option><option value="30">30</option><option value="32">32</option><option value="34">34</option><option value="36">36</option>
+                        </optgroup>
+                        <optgroup label="জুতার সাইজ">
+                            <option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option>
+                        </optgroup>
+                        <optgroup label="চশমা">
+                            <option value="Standard Size">স্ট্যান্ডার্ড সাইজ</option>
+                        </optgroup>
+                        <optgroup label="ঘড়ির সাইজ">
+                            <option value="Standard/Adjustable">ফ্রি সাইজ (অ্যাডজাস্টেবল)</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>আপনার নাম:</label>
+                    <input type="text" id="customerName" required placeholder="সম্পূর্ণ নাম লিখুন">
+                </div>
+                <div class="form-group">
+                    <label>মোবাইল নম্বর:</label>
+                    <input type="tel" id="customerPhone" pattern="[0-9]{11}" placeholder="01XXXXXXXXX" required>
+                </div>
+                <div class="form-group">
+                    <label>ডেলিভারি ঠিকানা:</label>
+                    <textarea id="customerAddress" rows="2" required placeholder="জেলা, থানা এবং পূর্ণাঙ্গ ঠিকানা"></textarea>
+                </div>
+                <button type="submit" class="whatsapp-submit-btn">
+                    <i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপে কনফার্ম করুন
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Size Guide Modal -->
+    <div class="modal" id="sizeGuideModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('sizeGuideModal')">&times;</span>
+            <h3>সাইজ গাইড মেজারমেন্ট</h3>
+            <br>
+            <b>শার্টের সাইজ (ইঞ্চি):</b>
+            <table class="size-table">
+                <tr><th>সাইজ</th><th>চেস্ট</th><th>লম্বা</th></tr>
+                <tr><td>M</td><td>38"</td><td>27"</td></tr>
+                <tr><td>L</td><td>40"</td><td>28"</td></tr>
+                <tr><td>XL</td><td>42"</td><td>29"</td></tr>
+                <tr><td>XXL</td><td>44"</td><td>30"</td></tr>
+            </table>
+            <br>
+            <b>প্যান্ট, জুতা, চশমা ও ঘড়ি:</b> প্যান্ট ও জুতার ক্ষেত্রে আপনার স্বাভাবিক মাপ সিলেক্ট করুন। চশমা ও ঘড়ির ক্ষেত্রে এটি ফ্রি/স্ট্যান্ডার্ড অ্যাডজাস্টেবল সাইজ।
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ELIGHT HAVEN Store. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const myWhatsAppNumber = "8801314367901";
+
+        // Product List (প্রতিটি প্রোডাক্টের নিজস্ব কাস্টম ডেসক্রিপশনসহ)
+        const products = [
+            // --- শার্ট (Shirt) ---
+            {
+                id: 1,
+                category: 'shirt',
+                title: 'ফরমাল কটন শার্ট (নেভি ব্লু)',
+                price: 790,
+                isHot: true,
+                desc: '১০০% প্রিমিয়াম কটন ফ্যাব্রিক দিয়ে তৈরি। অফিস বা যেকোনো প্রফেশনাল ব্যবহারের জন্য অত্যন্ত আরামদায়ক ও টেকসই।',
+                img: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=500',
+                gallery: ['https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=500']
+            },
+            {
+                id: 2,
+                category: 'shirt',
+                title: 'ক্যাজুয়াল সলিড শার্ট',
+                price: 850,
+                isHot: false,
+                desc: 'নরম ও আরামদায়ক ফ্যাব্রিক। ক্যাজুয়াল আউটিং এবং বন্ধুদের সাথে ঘোরার জন্য চমৎকার ডিজাইন।',
+                img: 'https://i.postimg.cc/ry4v2GnB/1785227316086.jpg',
+                gallery: [
+                    'https://i.postimg.cc/ry4v2GnB/1785227316086.jpg',
+                    'https://i.postimg.cc/7hN9YLT3/1785227330600.jpg',
+                    'https://i.postimg.cc/8z7Rx4ww/1785227350484.jpg'
+                ]
+            },
+            {
+                id: 3,
+                category: 'shirt',
+                title: 'চেক ক্যাজুয়াল শার্ট (রেড-ব্ল্যাক)',
+                price: 890,
+                isHot: true,
+                desc: 'ট্রেন্ডি রেড-ব্ল্যাক চেক ডিজাইন। প্রিমিয়াম কটন ফেব্রিক এবং চমৎকার ফিনিশিং।',
+                img: 'https://images.unsplash.com/photo-1603252109303-2751441dd157?w=500',
+                gallery: ['https://images.unsplash.com/photo-1603252109303-2751441dd157?w=500']
+            },
+            {
+                id: 4,
+                category: 'shirt',
+                title: 'টেক্সচার্ড কটন শার্ট',
+                price: 750,
+                isHot: false,
+                desc: 'ইউনিক টেক্সচার্ড কটন মেটেরিয়াল। গরমের দিনে ব্যবহারের জন্য অত্যন্ত আরামদায়ক।',
+                img: 'https://i.postimg.cc/282vF71R/F-2012.png',
+                gallery: ['https://i.postimg.cc/sDDGXGw8/F-2010-1faed569-091d-45ea-b426-28e55f819153.png']
+            },
+            {
+                id: 5,
+                category: 'shirt',
+                title: 'কিউবান কলার শার্ট',
+                price: 950,
+                isHot: false,
+                desc: 'স্টাইলিশ কিউবান কলার শার্ট। ক্যাজুয়াল সামার লুকের জন্য সেরা পছন্দ।',
+                img: 'https://i.postimg.cc/6Q7mNQk7/CD-202.png',
+                gallery: ['https://i.postimg.cc/pXZ7f4QV/CD-200.png']
+            },
+            {
+                id: 6,
+                category: 'shirt',
+                title: 'কর্ডুরয় শার্ট',
+                price: 980,
+                isHot: false,
+                desc: 'প্রিমিয়াম কর্ডুরয় ফ্যাব্রিক। হালকা শীতে বা ট্রেন্ডি আউটফিট হিসেবে পরার জন্য আকর্ষণীয়।',
+                img: 'https://i.postimg.cc/CKCT2NWV/CD-13.png',
+                gallery: ['https://i.postimg.cc/QCt2HrV3/CD-7.png']
+            },
+
+            // --- প্যান্ট (Pant) ---
+            {
+                id: 11,
+                category: 'pant',
+                title: 'প্রিমিয়াম গ্যাবার্ডিন প্যান্ট',
+                price: 990,
+                isHot: false,
+                desc: 'হাই-কোয়ালিটি গ্যাবার্ডিন ফেব্রিক। নিখুঁত সেলাই ও আরামদায়ক ফিটিং।',
+                img: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=500',
+                gallery: ['https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=500']
+            },
+            {
+                id: 12,
+                category: 'pant',
+                title: 'এক্সক্লুসিভ ডেনিম জিন্স',
+                price: 1090,
+                isHot: true,
+                desc: 'স্ট্রেচেবল প্রিমিয়াম ডেনিম ফ্যাব্রিক। দীর্ঘস্থায়ী রং এবং আকর্ষণীয় ওয়াশ ওয়াশ লুক।',
+                img: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500',
+                gallery: ['https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500']
+            },
+            {
+                id: 13,
+                category: 'pant',
+                title: 'রিপড জিন্স',
+                price: 2200,
+                isHot: false,
+                desc: 'ট্রেন্ডি রিম্পড ডেনিম প্যান্ট। স্টাইলিশ ও মডার্ন লুকের জন্য চমৎকার।',
+                img: 'https://i.postimg.cc/CLzvyXCH/IMG-20260728-163928-407.jpg',
+                gallery: ['https://i.postimg.cc/wxPXNvJp/IMG-20260728-163925-810.jpg']
+            },
+            {
+                id: 14,
+                category: 'pant',
+                title: 'কার্গো প্যান্ট',
+                price: 1250,
+                isHot: false,
+                desc: 'মাল্টি-পকেট সুবিধাসহ টেকসই কার্গো প্যান্ট। ট্রাভেল ও ক্যাজুয়াল ব্যবহারের জন্য বেস্ট।',
+                img: 'https://i.postimg.cc/6QpsvYJ4/IMG-20260728-164811-041.jpg',
+                gallery: ['https://i.postimg.cc/sXbbbzBB/IMG-20260728-164842-372.jpg']
+            },
+
+            // --- জেন্টস জুতা (Shoes) ---
+            {
+                id: 21,
+                category: 'shoes',
+                title: 'স্পোর্টস রানিং স্নিকার্স (রেড-হোয়াইট)',
+                price: 1250,
+                isHot: true,
+                desc: 'হালকা ও আরামদায়ক সোলের স্পোর্টস শু। রানিং, জিম ও দৈনন্দিন হাঁটার জন্য পারফেক্ট।',
+                img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500',
+                gallery: ['https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500']
+            },
+            {
+                id: 23,
+                category: 'shoes',
+                title: 'ক্লাসিক লেদার লোফার (ডিপ ব্রাউন)',
+                price: 1450,
+                isHot: true,
+                desc: 'অরিজিনাল সিন্থেটিক লেদার লোফার। সফট কুশন ইনসোল নিশ্চিত করে সারাদিনের আরাম।',
+                img: 'https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=500',
+                gallery: ['https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=500']
+            },
+            {
+                id: 24,
+                category: 'shoes',
+                title: 'স্পোর্টস শু',
+                price: 1250,
+                isHot: false,
+                desc: 'ফ্লেক্সিবল ও গ্রিপ গ্রিপার সোলযুক্ত স্পোর্টস স্নিকার্স। লং-লাস্টিং কমফোর্ট।',
+                img: 'https://i.postimg.cc/JhXZCyQ5/1785241692123.png',
+                gallery: ['https://i.postimg.cc/JhXZCyQ5/1785241692123.png']
+            },
+            {
+                id: 25,
+                category: 'shoes',
+                title: 'হাই-টপ এনকেল বুট',
+                price: 1440,
+                isHot: false,
+                desc: 'স্টাইলিশ হাই-টপ ডিজাইন বুট। প্রিমিয়াম মেটেরিয়াল এবং শক্তিশালী সোল কোয়ালিটি।',
+                img: 'https://i.postimg.cc/1zLx4dwF/1785242080222.png',
+                gallery: ['https://i.postimg.cc/d3YzjTWV/1785242128928.png']
+            },
+
+            // --- লেডিস জুতা (Ladies Shoes) ---
+            {
+                id: 36,
+                category: 'ladies_shoes',
+                title: 'Black High Heels',
+                price: 1280,
+                isHot: true,
+                desc: 'আকর্ষণীয় ও ট্রেন্ডি ব্ল্যাক হাই হিলস। পার্টি ও বিশেষ যেকোনো ইভেন্টের জন্য সেরা।',
+                img: 'https://i.postimg.cc/FsMZ5Qc0/IMG-20260726-183935-415.jpg',
+                gallery: ['https://i.postimg.cc/FsMZ5Qc0/IMG-20260726-183935-415.jpg']
+            },
+            {
+                id: 46,
+                category: 'ladies_shoes',
+                title: 'লেডিস ফ্যাশন স্নিকার্স (পিঙ্ক)',
+                price: 1250,
+                isHot: true,
+                desc: 'লাইটওয়েট ও কিউট ডিজাইনের পিঙ্ক স্নিকার্স। সারাদিন ব্যবহারের উপযোগী।',
+                img: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=500',
+                gallery: ['https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=500']
+            },
+            {
+                id: 47,
+                category: 'ladies_shoes',
+                title: 'ওভেন মেরি জেন ব্লক হিলস',
+                price: 2599,
+                isHot: false,
+                desc: 'আরামদায়ক ব্লক হিল ও এলিগ্যান্ট ওভেন ডিজাইন। যেকোনো আউটফিটের সাথেই মানানসই।',
+                img: 'https://i.postimg.cc/13s77QcF/IMG-20260728-185253-627.jpg',
+                gallery: ['https://i.postimg.cc/632M45tt/IMG-20260728-185322-205.jpg']
+            },
+            {
+                id: 48,
+                category: 'ladies_shoes',
+                title: 'স্লিপ-অন কমফোর্ট শু',
+                price: 1199,
+                isHot: false,
+                desc: 'সহজে পরার উপযোগী সফট স্লিপ-অন শু। নিয়মিত হাঁটাচলার জন্য সেরা।',
+                img: 'https://i.postimg.cc/Wzmt5gTq/IMG-20260728-184300-709.jpg',
+                gallery: ['https://i.postimg.cc/c1fK1ywY/IMG-20260728-184329-992.jpg']
+            },
+
+            // --- চশমা (Sunglasses) ---
+            {
+                id: 51,
+                category: 'sunglasses',
+                title: 'স্টাইলিশ সানগ্লাস (ব্ল্যাক ফ্রেম)',
+                price: 490,
+                isHot: true,
+                desc: 'UV400 প্রোটেকশনসহ লাইটওয়েট টেকসই মেটাল/ফাইবার ফ্রেম। রোদে চোখের সুরক্ষায় পারফেক্ট।',
+                img: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500',
+                gallery: ['https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500']
+            },
+            {
+                id: 52,
+                category: 'sunglasses',
+                title: 'ইউভি প্রোটেকশন ক্লাসিক এভিয়েটর চশমা',
+                price: 590,
+                isHot: false,
+                desc: 'ক্লাসিক এভিয়েটর ডিজাইন। ক্ষতিকারক অতিবেগুনি রশ্মি প্রতিরোধে কার্যকর লেন্স।',
+                img: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500',
+                gallery: ['https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500']
+            },
+            {
+                id: 53,
+                category: 'sunglasses',
+                title: 'প্রিমিয়াম ভিনটেজ সানগ্লাস (গোল্ডেন ফ্রেম)',
+                price: 650,
+                isHot: true,
+                desc: 'গোল্ডেন মেটাল ফ্রেমের ভিনটেজ লুক। ফেস শেপ যাই হোক না কেন চমৎকার মানাবে।',
+                img: 'https://images.unsplash.com/photo-1508296695146-257a814070b4?w=500',
+                gallery: ['https://images.unsplash.com/photo-1508296695146-257a814070b4?w=500']
+            },
+            {
+                id: 54,
+                category: 'sunglasses',
+                title: 'ওভারসাইজড সানগ্লাস',
+                price: 430,
+                isHot: false,
+                desc: 'ট্রেন্ডি ওভারসাইজড গ্লাস। সম্পূর্ণ চোখ ঢেকে রোদ ও ধুলাবালি থেকে চমৎকার সুরক্ষা প্রদান করে।',
+                img: 'https://i.postimg.cc/t4k6kt7C/IMG-20260728-171701-580.jpg',
+                gallery: ['https://i.postimg.cc/WbfS8vyQ/1785237847645.png']
+            },
+            {
+                id: 55,
+                category: 'sunglasses',
+                title: 'ফ্ল্যাট টপ স্কয়ার সানগ্লাস',
+                price: 320,
+                isHot: false,
+                desc: 'মডার্ন ফ্ল্যাট টপ স্কয়ার ফ্রেম। প্রিমিয়াম পলিকার্বোনেট লেন্স ও স্ক্র্যাচ রেজিস্ট্যান্ট।',
+                img: 'https://i.postimg.cc/8P0Q6xm8/IMG-20260728-173059-143.jpg',
+                gallery: ['https://i.postimg.cc/zGssdWQs/IMG-20260728-173125-644.jpg']
+            },
+
+            // --- নতুন যুক্ত করা ঘড়ির কালেকশন (Watch) ---
+            {
+                id: 61,
+                category: 'watch',
+                title: 'ক্লাসিক লেদার ওয়াচ ',
+                price: 1200,
+                isHot: true,
+                desc: 'প্রিমিয়াম কোয়ালিটি লেদার স্ট্র্যাপ এবং এলিগ্যান্ট ডায়াল ডিজাইন। ওয়াটার রেজিস্ট্যান্ট এবং দীর্ঘদিন ব্যবহারের জন্য উপযুক্ত।',
+                img: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500',
+                gallery: ['https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500']
+            },
+            {
+                id: 62,
+                category: 'watch',
+                title: 'পাগোমু ওয়াচ ',
+                price: 1050,
+                isHot: false,
+                desc: 'আকর্ষণীয় মেটাল স্টেইনলেস স্টিল স্ট্র্যাপ। প্রফেশনাল ও ফরমাল লুকের জন্য পারফেক্ট চয়েস।',
+                img: 'https://i.postimg.cc/Dz171sFz/IMG-20260728-195617-160.jpg',
+                gallery: ['https://i.postimg.cc/vBzMNs4Q/IMG-20260728-195824-713.jpg']
+            },
+            {
+                id: 63,
+                category: 'watch',
+                title: 'স্মার্ট ফিটনেস ওয়াচ ৩',
+                price: 1850,
+                isHot: true,
+                desc: 'হার্ট রেট মনিটর, স্টেপ কাউন্টার এবং নোটিফিকেশন অ্যালার্ট সুবিধাসহ লেটেস্ট স্মার্টওয়াচ।',
+                img: 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500',
+                gallery: ['https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500']
+            },
+            {
+                id: 64,
+                category: 'watch',
+                title: 'লুইসিফস ওয়াচ ',
+                price: 1250,
+                isHot: false,
+                desc: 'শকপ্রুফ ও ওয়াটারপ্রুফ স্পোর্টস ওয়াচ। নাইট লাইট ও স্টপওয়াচ ফিচারসহ দৈনিক ব্যবহারের জন্য অত্যন্ত মজবুত।',
+                img: 'https://i.postimg.cc/PxkYMmwg/IMG-20260728-200824-905.jpg',
+                gallery: ['https://i.postimg.cc/90L9VKN1/IMG-20260728-200900-631.jpg']
+            }
+        ];
+
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.getElementById('themeIcon');
+            const text = document.getElementById('themeText');
+            if(document.body.classList.contains('dark-mode')) {
+                icon.className = 'fa-solid fa-sun';
+                text.innerText = 'লাইট মোড';
+            } else {
+                icon.className = 'fa-solid fa-moon';
+                text.innerText = 'ডার্ক মোড';
+            }
+        }
+
+        // Render Product Cards
+        function renderProducts(items) {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+            if(items.length === 0) {
+                grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: #64748b; padding: 40px 0;">কোনো প্রোডাক্ট পাওয়া যায়নি!</p>`;
+                return;
+            }
+            items.forEach(product => {
+                grid.innerHTML += `
+                    <div class="product-card">
+                        ${product.isHot ? '<span class="product-badge">HOT</span>' : ''}
+                        <div class="img-wrapper" onclick="openQuickView(${product.id})">
+                            <img src="${product.img}" class="product-img" loading="lazy" alt="${product.title}">
+                            <button class="quick-view-btn"><i class="fa-regular fa-eye"></i> বিস্তারিত</button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">${product.title}</div>
+                            <div class="product-price">৳ ${product.price}</div>
+                            <button class="order-btn" onclick="openOrderModal('${product.title}', '${product.price}')">অর্ডার করুন</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // Quick View Gallery & Custom Description Logic
+        function openQuickView(productId) {
+            const product = products.find(p => p.id === productId);
+            if(!product) return;
+
+            document.getElementById('qvTitle').innerText = product.title;
+            document.getElementById('qvPrice').innerText = '৳ ' + product.price;
+            document.getElementById('qvMainImg').src = product.img;
+            
+            // ডায়নামিক কাস্টম ডেসক্রিপশন সেট করা
+            document.getElementById('qvDesc').innerText = product.desc ? product.desc : '১০০% অরিজিনাল ও প্রিমিয়াম কোয়ালিটি প্রোডাক্ট।';
+
+            const thumbsContainer = document.getElementById('qvThumbs');
+            thumbsContainer.innerHTML = '';
+            
+            const images = (product.gallery && product.gallery.length > 0) ? product.gallery : [product.img];
+            
+            images.forEach((imgUrl, idx) => {
+                thumbsContainer.innerHTML += `
+                    <img src="${imgUrl}" class="thumb-img ${idx === 0 ? 'active' : ''}" onclick="changeQvImage(this, '${imgUrl}')">
+                `;
+            });
+
+            document.getElementById('qvOrderBtn').onclick = function() {
+                closeModal('quickViewModal');
+                openOrderModal(product.title, product.price);
+            };
+
+            openModal('quickViewModal');
+        }
+
+        function changeQvImage(element, url) {
+            document.getElementById('qvMainImg').src = url;
+            document.querySelectorAll('.thumb-img').forEach(t => t.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        // Filter Categories
+        function filterCategory(cat, el) {
+            document.querySelectorAll('.category-card').forEach(c => c.classList.remove('active'));
+            el.classList.add('active');
+            if(cat === 'all') renderProducts(products);
+            else renderProducts(products.filter(p => p.category === cat));
+        }
+
+        // Search System
+        function searchProducts() {
+            const q = document.getElementById('searchInput').value.toLowerCase();
+            renderProducts(products.filter(p => p.title.toLowerCase().includes(q)));
+        }
+
+        // Modal Controls
+        function openModal(id) {
+            document.getElementById(id).style.display = 'flex';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        function openOrderModal(title, price) {
+            document.getElementById('selectedProduct').value = title;
+            document.getElementById('selectedPrice').value = (typeof price === 'string' && price.startsWith('৳')) ? price : '৳ ' + price;
+            openModal('orderModal');
+        }
+
+        // WhatsApp Order Submission
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            const product = document.getElementById('selectedProduct').value;
+            const price = document.getElementById('selectedPrice').value;
+            const size = document.getElementById('size').value;
+            const name = document.getElementById('customerName').value;
+            const phone = document.getElementById('customerPhone').value;
+            const address = document.getElementById('customerAddress').value;
+
+            const msg = `হ্যালো ELIGHT HAVEN,%0Aআমি একটি নতুন অর্ডার করতে চাই!%0A%0A📦 *প্রোডাক্ট/অর্ডার:* ${product}%0A📏 *সাইজ:* ${size}%0A💰 *মূল্য:* ${price}%0A%0A👤 *গ্রাহকের নাম:* ${name}%0A📞 *মোবাইল নম্বর:* ${phone}%0A🏠 *ঠিকানা:* ${address}`;
+            
+            window.open(`https://wa.me/${myWhatsAppNumber}?text=${msg}`, '_blank');
+            closeModal('orderModal');
+        }
+
+        // Countdown Timer Script
+        let time = 31530;
+        setInterval(() => {
+            if(time <= 0) return;
+            time--;
+            document.getElementById('hours').innerText = String(Math.floor(time / 3600)).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(Math.floor((time % 3600) / 60)).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(time % 60).padStart(2, '0');
+        }, 1000);
+
+        // Recent Purchase Popup
+        const fakeOrders = [
+            { name: "আরিফ, ঢাকা", item: "ক্যাজুয়াল সলিড শার্ট", img: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=100" },
+            { name: "সাকিব, চট্টগ্রাম", item: "স্পোর্টস রানিং স্নিকার্স", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100" },
+            { name: "মেহেদী, সিলেট", item: "স্টাইলিশ সানগ্লাস", img: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=100" },
+            { name: "তানজিম, রাজশাহী", item: "ক্লাসিক লেদার ওয়াচ", img: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=100" }
+        ];
+
+        function showRecentPurchase() {
+            const popup = document.getElementById('recentPopup');
+            const rand = fakeOrders[Math.floor(Math.random() * fakeOrders.length)];
+            document.getElementById('recentName').innerText = rand.name;
+            document.getElementById('recentProduct').innerText = rand.item + " অর্ডার করেছেন";
+            document.getElementById('recentImg').src = rand.img;
+            
+            popup.classList.add('show');
+            setTimeout(() => {
+                popup.classList.remove('show');
+            }, 4000);
+        }
+
+        setInterval(showRecentPurchase, 12000);
+
+        // Close Modal on Click Outside
+        window.onclick = function(e) {
+            if (e.target == document.getElementById('orderModal')) closeModal('orderModal');
+            if (e.target == document.getElementById('sizeGuideModal')) closeModal('sizeGuideModal');
+            if (e.target == document.getElementById('quickViewModal')) closeModal('quickViewModal');
+        }
+
+        // Initial Load
+        renderProducts(products);
+    </script>
+</body>
+</html>
